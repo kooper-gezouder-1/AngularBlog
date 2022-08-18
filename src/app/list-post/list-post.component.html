@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-xs-8"> 
+		<h2>Posts</h2>
+		<button class="list-group-item" *ngFor="let post of posts,let i =index" >
+			<h2 class="list-group-item-heading" (click)="onSingleView(i)">
+				{{post.title}}
+				<button class="btn btn-defaul pull-right" (click)="onRemovePost(post)">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</h2>
+			<span class="pull-right">Posted {{post.Postdate | date:'medium'}}</span>
+			<p class="list-group-text" style="display: block;font-size: 20px;">{{post.content}}</p>
+			<img [src]="post.picture" style="max-width: 600px;margin:  0 auto;">
+			<button class="btn btn-success" (click)="onLike(post)" style="display: block;"><span class="glyphicon glyphicon-heart"></span>{{post.like}}</button>
+		</button>
+	</div>
+</div>

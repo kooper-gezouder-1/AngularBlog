@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<h2>Submit a new post</h2>
+		<form [formGroup]="addForm" (ngSubmit)="onAddPost()">
+			<div class="list-group-item">
+				<label for="Title">Title</label>
+				<input type="text" class="form-control" formControlName="title" id="title">
+			</div>
+			<div class="list-group-item">
+				<label for="Title">Content</label>
+				<input type="text" class="form-control" formControlName="content" id="Content">
+			</div>
+			<h3>Upload picture</h3>
+			<div class="form-group">
+				<input type="file" (change)="onDetectFile($event)" accept="image/*" class="form-control">
+				<p class="text-success" *ngIf="fileUploded">Picture uploaded !</p>
+			</div>
+			
+			<button type="submit" class="btn btn-success" [disabled]="addForm.invalid || fileIsUploding" >Post</button>
+		</form>
+	</div>
+</div>

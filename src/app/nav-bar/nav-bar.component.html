@@ -1,0 +1,23 @@
+	<nav class="navbar navbar-default ">
+		<div class="container-fluid  bg-primary">
+			<ul class="nav navbar-nav">
+				<li>
+					<a routerLink="posts" style="color: #fff;font-weight: bolder;">News</a>
+				</li>
+				<li routerLinkActive="active">
+					<a routerLink="post/new" style="color: #000;font-weight: bolder;"><span class="glyphicon glyphicon-plus"></span></a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li routerLinkActive="active" *ngIf="!isAuth">
+					<a routerLink="auth/signup" style="color: #000;font-weight: bolder;">Signup</a>
+				</li>
+				<li routerLinkActive="active" *ngIf="!isAuth">
+					<a routerLink="auth/signin" style="color: #000;font-weight: bolder;">Login</a>
+				</li>
+				<li routerLinkActive="active" *ngIf="isAuth" style="cursor: pointer;">
+					<a (click)="onSignOut()" style="color: #000;font-weight: bolder;"><span class="glyphicon glyphicon-off" style="font-weight: bolder;"></span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
